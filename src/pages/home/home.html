@@ -1,0 +1,28 @@
+<ion-header>
+		<ion-navbar>
+	<!--<ion-label start> Mercado search @jhonatorozco</ion-label> !--> 	
+	  	<ion-title start padding>
+	      Mercado search @jhonatorozco
+	    </ion-title>
+	    <ion-searchbar end
+		  [(ngModel)]="productName"
+		  placeholder="Busca tu producto"
+		  (ionInput)="findProducts()">
+		</ion-searchbar>
+  	</ion-navbar>   
+</ion-header>
+
+<ion-content padding>
+<ion-list>
+	 	<ion-item *ngFor="let product of products">
+		    <ion-thumbnail item-start>
+		       <img src={{product.thumbnail}}>
+		    </ion-thumbnail>
+		    <h3> <strong>{{product.title}} </strong></h3>
+		    <h3> ${{ product.price | currency:"COP":false}}</h3>
+		    <button ion-button item-end [navParams] = "{product : product}"
+		     [navPush]="detailProductPage">Ver</button>
+	 	</ion-item>
+	</ion-list>
+   
+</ion-content>
