@@ -3,19 +3,16 @@ import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
-  Generated class for the MercadoLibreProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
+  Generated class for the MercadoLibreProvider provider. Used to consume the Mercado Libre API
 */
 @Injectable()
 export class MercadoLibreProvider {
 	link:any ="https://api.mercadolibre.com/sites/MCO/search?q=";
 
 	constructor(public http: Http) {
-    	console.log('Hello MercadoLibreProvider Provider');
   	}
 
+    /*Consume the Mercado Libre API to search a product with the name passed as parameter*/
   	searchProductsByName(nameProduct:string){
   		return new Promise((resolve, reject)=> {
           var link:string = this.link + nameProduct 

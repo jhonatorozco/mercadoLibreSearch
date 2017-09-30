@@ -18,6 +18,8 @@ export class HomePage {
 		
 	}
 
+	/* Find the products by the name typed in the search box.
+	*/
 	findProducts(){
 		this._mercadoLibreSerice.searchProductsByName(this.productName).then( (response) => {
      		this.products = response;
